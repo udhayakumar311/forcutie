@@ -248,7 +248,13 @@ body, html{
         const confirmation = document.querySelector(".confirmation");
         const container = document.querySelector(".container");
         const prefersTouchInput = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+        const song = document.getElementById("song");
 
+        song.addEventListener("ended", function () {
+            song.currentTime = 0; 
+            song.pause(); 
+        });
+        
         const yesAnswerMethod = () => {
             container.style.display = "none";
             confirmation.style.display = "block";
